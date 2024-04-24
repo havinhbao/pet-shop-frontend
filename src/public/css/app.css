@@ -1,30 +1,35 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
 
-  font-family: 'Oswald', sans-serif;
+:root {
+  --main-bg-color: #00ad6e;
+  --main-text-color: #009d63;
+  --second-text-color: #bbbec5;
+  --second-bg-color: #c1efde;
 }
 
+.primary-text {
+  color: var(--main-text-color);
+}
 
-.alert {
-  position: fixed;
-  top: 5%;
-  right: 2%;
+.second-text {
+  color: var(--second-text-color);
+}
 
-  background: rgb(255, 250, 245);
+.primary-bg {
+  background-color: var(--main-bg-color);
+}
 
-  color: #fff;
-  font-weight: 800;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  padding: 20px;
-  width: 300px;
-  height: 100vh;
-  border-radius: 10px;
-  transform: translateX(150%);
+.secondary-bg {
+  background-color: var(--second-bg-color);
+}
 
-  transition: transform 0.3s ease-in-out;
+.rounded-full {
+  border-radius: 100%;
+}
+
+#wrapper {
+  overflow-x: hidden;
+  background-image: linear-gradient(to right, #baf3d7, #c2f5de, #cbf7e4, #d4f8ea, #ddfaef);
+
 }
 
 
@@ -68,45 +73,33 @@ body {
   flex-direction: column;
   min-height: 100vh;
 
-  width: 100%;
-  position: relative;
-  background: rgb(255, 250, 245);
-  background: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url(https://i.postimg.cc/Pr1sw3SW/wp11428610-dogs-and-cats-spring-wallpapers.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  padding-top: 100px;
-  /* margin: 0px 80px; */
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
 }
 
-header .hamburger {
-  display: none;
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
 }
 
-
-header {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-
-  height: 75px;
-
-  top: 0;
-  left: 0;
-  z-index: 1;
-  padding: 20px 60px;
-
-  background: rgb(255, 250, 245);
-  position: fixed;
-  border-bottom: 1px solid #aaa;
+#sidebar-wrapper .list-group {
+  width: 15rem;
 }
 
-header .logo {
-  color: rgb(48, 47, 81);
-  font-weight: bold;
-  font-size: 30px;
-  text-decoration: none;
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#menu-toggle {
+  cursor: pointer;
+
 }
 
 .input-search {
@@ -114,36 +107,9 @@ header .logo {
   background-color: transparent;
   outline: none;
   border: none;
-  border-bottom: 1px solid black;
-  font-size: 17px;
+  padding: 20px 30px;
 
-}
 
-.bx-search {
-  font-size: 25px;
-}
-
-header ul {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  gap: 60px;
-  list-style: none;
-}
-
-header .navigation li a {
-  text-decoration: none;
-  color: rgb(48, 47, 81);
-  transition: .5s;
-}
-
-header .navigation li a:hover {
-  color: rgb(153, 150, 252);
-}
-
-.banner .title {
-  max-width: 900px;
-  text-align: left;
 }
 
 .banner .title h1 {
@@ -427,232 +393,224 @@ section {
   color: rgb(48, 47, 81);
   transition: .5s;
   font-weight: bold;
-  font-size: 1.3em;
+  border: none;
 }
 
-footer .links .navigation li a:hover {
-  color: rgb(153, 150, 252);
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
 }
 
-.footer .info {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  width: 200px;
-  font-size: 1.1em;
+/* Import Font Dancing Script */
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+* {
+  margin: 0;
 }
 
-.footer .info h1 {
+body {
+  background-color: #e8f5ff;
+  font-family: cursive;
+  overflow: hidden;
+}
+
+
+.logo {
   color: rgb(48, 47, 81);
+  font-weight: bold;
+  font-size: 2.5em;
+  text-decoration: none;
+}
+
+.navbar-top {
+  background-color: #ffe0e0c7;
+  color: #333;
+  box-shadow: 0px 4px 8px 0px grey;
+  height: 70px;
+}
+
+.title {
+  font-family: 'Dancing Script', cursive;
+  padding-top: 15px;
+  position: absolute;
+  left: 45%;
+}
+
+.navbar-top ul {
+  float: right;
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 18px 50px 0 40px;
+}
+
+.navbar-top ul li {
+  float: left;
+}
+
+.navbar-top ul li a {
+  color: #333;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.icon-count {
+  background-color: #ff0000;
+  color: #fff;
+  float: right;
+  font-size: 11px;
+  left: -25px;
+  padding: 2px;
+  position: relative;
+}
+
+
+.sidenav {
+  background-color: lightsteelblue;
+  color: #333;
+  border-bottom-right-radius: 25px;
+  height: 86%;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  position: absolute;
+  top: 70px;
+  width: 250px;
+}
+
+.profile {
+  margin-bottom: 20px;
+  margin-top: -12px;
   text-align: center;
 }
 
-.footer .cs {
-  display: flex;
-  flex-direction: column;
-  color: rgb(48, 47, 81);
+.profile img {
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 1px grey;
 }
 
-.footer .cs ul {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  gap: 10px;
-  list-style: none;
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 20px;
 }
 
-.footer .cs li {
+.job {
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.url,
+hr {
+  text-align: center;
+}
+
+.url hr {
+  margin-left: 20%;
+  width: 60%;
+}
+
+.url a {
+  color: #818181;
+  display: block;
+  font-size: 20px;
+  margin: 10px 0;
+  padding: 6px 8px;
   text-decoration: none;
-  color: rgb(48, 47, 81);
-  transition: .5s;
-  font-size: 1.1em;
 }
 
-.footer .slinks {
-  display: flex;
-  flex-direction: column;
-  color: rgb(48, 47, 81);
+.url a:hover,
+.url .active {
+  background-color: #e8f5ff;
+  border-radius: 28px;
+  color: #000;
+  margin-left: 14%;
+  width: 65%;
 }
 
-.footer .slinks .link {
-  margin-top: 10px;
+
+.main {
+  margin-top: 2%;
+  margin-left: 29%;
+  font-size: 28px;
+  padding: 0 10px;
+  width: 58%;
 }
 
-.form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
+.main h2 {
+  color: #333;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-.form h1 {
-  font-size: 2em;
-  color: rgb(48, 47, 81);
+.main .card {
+  background-color: #fff;
+  border-radius: 18px;
+  box-shadow: 1px 1px 8px 0 grey;
+  height: auto;
+  margin-bottom: 20px;
+  padding: 20px 0 20px 50px;
 }
 
-.form input {
-  padding: 10px 250px;
-  background: transparent;
-}
-
-.form button {
-  padding: 10px 300px;
-  color: #fff;
-  background: #F88D58;
+.main .card table {
   border: none;
-  cursor: pointer;
-  letter-spacing: 2px;
+  font-size: 16px;
+  height: 270px;
+  width: 80%;
 }
 
-.strip {
-  background: rgb(48, 47, 81);
-  width: 100%;
-  height: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.edit {
+  position: absolute;
+  color: #e7e7e8;
+  right: 14%;
 }
 
-.strip h1 {
-  color: #fff;
-  font-weight: 300;
+.social-media {
+  text-align: center;
+  width: 90%;
 }
 
-.strip .icons a {
-  color: #fff;
+.social-media span {
+  margin: 0 10px;
 }
 
-@media (max-width: 991px) {
-  .banner {
-      margin: 0px;
-  }
-
-  .banner .title h1 {
-      font-size: 2em;
-  }
-
-  .btn {
-      padding: 10px 30px;
-  }
-
-  .shop .title p {
-      text-align: center;
-  }
-
-  .contact {
-      margin: 0px;
-  }
-
-  .about {
-      display: flex;
-
-      flex-direction: column;
-  }
-
-  .imgtext img {
-      width: 350px;
-      object-fit: cover;
-  }
-
-  .imgtext .info {
-      width: 300px;
-      left: 30px;
-      padding: 20px 20px;
-  }
-
-  .shop .content {
-      justify-content: center;
-  }
-
-  .form input {
-      padding: 10px 80px;
-  }
-
-  .form button {
-      padding: 10px 80px;
-  }
-
-  .contact .footer {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      background: rgb(48, 47, 81);
-      color: #fff;
-
-  }
-
-  .footer .links .navigation li a {
-      color: #fff;
-  }
-
-  .footer .info h1 {
-      color: #fff;
-      text-align: left;
-  }
-
-  .footer .cs {
-      color: #fff;
-  }
-
-  .footer .cs li {
-      color: #fff;
-  }
-
-  .footer .slinks {
-      color: #fff;
-  }
-
-  .footer .slinks .link a {
-      text-decoration: none;
-      color: #fff;
-  }
-
-  .contact .footer {
-      padding: 30px 20px;
-      gap: 50px;
-  }
-
-  header .navigation {
-      display: none;
-  }
-
-  header .hamburger {
-      display: block;
-  }
-
-  header .logo {
-      font-size: 20px;
-  }
+.fa-facebook:hover {
+  color: #4267b3 !important;
 }
 
-@media (min-width: 768px)and (max-width: 991px) {
-  .about {
-      display: flex;
-      flex-direction: column;
-  }
+.fa-twitter:hover {
+  color: #1da1f2 !important;
+}
 
-  .imgtext img {
-      width: 700px;
-      object-fit: cover;
-      height: 700px;
-  }
+.fa-instagram:hover {
+  color: #ce2b94 !important;
+}
 
-  .imgtext .info {
-      width: 650px;
-      left: 30px;
-      justify-content: center;
-      gap: 60px;
-  }
+.fa-invision:hover {
+  color: #f83263 !important;
+}
 
-  header .hamburger {
-      display: block;
-  }
+.fa-github:hover {
+  color: #161414 !important;
+}
 
-  header .logo {
-      font-size: 20px;
-  }
+.fa-whatsapp:hover {
+  color: #25d366 !important;
+}
+
+.fa-snapchat:hover {
+  color: #fffb01 !important;
 }

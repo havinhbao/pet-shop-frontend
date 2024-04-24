@@ -25,6 +25,10 @@ app.get('/product', (req, res) => {
   res.render('product.handlebars')
 });
 
+app.get('/profile', (req,res) => {
+  res.render('ProfileUser/profile.handlebars');
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
